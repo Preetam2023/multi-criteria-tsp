@@ -1,0 +1,14 @@
+from pathlib import Path
+
+exclude = {"venv", ".git", "__pycache__", "node_modules", ".ipynb_checkpoints"}
+
+def tree(dir_path, prefix=""):
+    paths = [p for p in sorted(Path(dir_path).iterdir()) if p.name not in exclude]
+    for i, path in enumerate(paths):
+        connector = "└── " if i == len(paths)-1 else "├── "
+        print(prefix + connector + path.name)
+        if path.is_dir():
+            extension = "    " if i == len(paths)-1 else "│   "
+            tree(path, prefix + extension)
+
+tree(".")
