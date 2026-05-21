@@ -4,7 +4,6 @@
   <img src="https://img.shields.io/badge/Python-3.11%2B-blue?logo=python" />
   <img src="https://img.shields.io/badge/Status-Under%20Review-orange" />
   <img src="https://img.shields.io/badge/License-MIT-green" />
-  <img src="https://img.shields.io/badge/Target%20Venue-Applied%20Soft%20Computing-purple" />
 </p>
 
 > **Research Paper:** *Adaptive Weight Scalarization for Multi-Criteria Traveling Salesman Problem Using Q-Learning*  
