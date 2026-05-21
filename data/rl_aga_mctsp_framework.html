@@ -1,0 +1,337 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:white;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#111}
+.wrap{background:white;padding:14px 10px 20px 10px;min-width:900px}
+.title{text-align:center;font-size:13px;font-weight:700;color:#1a1a2e;letter-spacing:.2px;padding-bottom:6px;border-bottom:1px solid #333;margin-bottom:10px}
+.subtitle-cap{text-align:center;font-size:9px;color:#555;font-style:italic;margin-top:10px}
+
+/* Grid layout: left=pareto, center=main, right=rl */
+.grid{display:grid;grid-template-columns:200px 1fr 220px;gap:0 14px;align-items:start}
+
+/* Generic block */
+.blk{border:1.2px solid #2563a8;border-radius:3px;background:#e8f0fb;margin-bottom:8px}
+.blk-head{background:#2563a8;color:white;font-size:9.5px;font-weight:700;padding:4px 7px;border-radius:2px 2px 0 0;line-height:1.3}
+.blk-sub{font-size:8.5px;color:#0c447c;padding:1px 7px 0 7px;font-style:italic}
+.blk-body{padding:4px 7px 5px 7px}
+.blk-item{font-size:8.5px;color:#1e3a5f;line-height:1.6}
+.blk-item::before{content:"• ";color:#2563a8}
+
+/* Green pareto */
+.gblk{border:1.2px solid #3a7d44;border-radius:3px;background:#d9f0de;margin-bottom:8px}
+.gblk-head{background:#3a7d44;color:white;font-size:9.5px;font-weight:700;padding:4px 7px;border-radius:2px 2px 0 0;line-height:1.3}
+.gblk-body{padding:4px 7px 5px 7px}
+.gblk-item{font-size:8.5px;color:#1a3d22;line-height:1.6}
+.gblk-item::before{content:"• ";color:#3a7d44}
+
+/* Orange RL */
+.oblk{border:1.2px solid #c17a1a;border-radius:3px;background:#fff3e2;margin-bottom:8px}
+.oblk-head{background:#c17a1a;color:white;font-size:9.5px;font-weight:700;padding:4px 7px;border-radius:2px 2px 0 0;line-height:1.3}
+.oblk-body{padding:4px 7px 5px 7px}
+.oblk-item{font-size:8.5px;color:#5c3700;line-height:1.6}
+.oblk-item::before{content:"• ";color:#c17a1a}
+
+/* Purple output */
+.pblk{border:1.8px solid #7c3aed;border-radius:3px;background:#f0eafb;margin-bottom:8px}
+.pblk-head{background:#7c3aed;color:white;font-size:9.5px;font-weight:700;padding:4px 7px;border-radius:2px 2px 0 0;line-height:1.3}
+.pblk-body{padding:4px 7px 5px 7px}
+.pblk-item{font-size:8.5px;color:#3b1a7a;line-height:1.6}
+.pblk-item::before{content:"• ";color:#7c3aed}
+
+/* GA dashed container */
+.ga-wrap{border:1.6px dashed #2563a8;border-radius:5px;background:#f4f8fe;padding:8px 10px 10px 10px;position:relative}
+.ga-label{position:absolute;top:-9px;left:14px;background:#2563a8;color:white;font-size:9px;font-weight:700;padding:1px 8px;border-radius:2px}
+
+/* RL dashed container */
+.rl-wrap{border:1.6px dashed #c17a1a;border-radius:5px;background:#fffaf3;padding:8px 8px 10px 8px;position:relative}
+.rl-label{position:absolute;top:-9px;left:10px;background:#c17a1a;color:white;font-size:9px;font-weight:700;padding:1px 8px;border-radius:2px}
+
+/* Pareto dashed container */
+.par-wrap{border:1.6px dashed #3a7d44;border-radius:5px;background:#f2faf4;padding:8px 8px 10px 8px;position:relative;height:100%}
+.par-label{position:absolute;top:-9px;left:8px;background:#3a7d44;color:white;font-size:9px;font-weight:700;padding:1px 8px;border-radius:2px}
+
+/* Arrow row */
+.arr-row{text-align:center;font-size:15px;color:#555;line-height:1;margin:2px 0}
+.arr-lbl{font-size:7.5px;color:#888;text-align:center;margin-top:-2px}
+
+/* Equation box */
+.eq{background:white;border:1px solid #b5d4f4;border-radius:3px;padding:3px 7px;margin:4px 0 2px 0;font-size:8px;color:#0c447c;font-family:"Courier New",monospace;text-align:center}
+
+/* Decision diamond */
+.diamond-wrap{text-align:center;margin:6px auto}
+.diamond{display:inline-block;background:#fef3c7;border:1.2px solid #d97706;transform:rotate(45deg);width:52px;height:52px;position:relative}
+.diamond-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-45deg);font-size:7.5px;font-weight:700;color:#92400e;width:72px;text-align:center;line-height:1.3}
+
+/* Init branches */
+.branches{display:flex;gap:10px;margin-bottom:4px}
+.branch{flex:1;border:1px solid #3a7d44;border-radius:3px;background:#e6f4ea;padding:4px 6px;text-align:center;font-size:8px;color:#1a3d22;font-weight:600}
+
+/* Feedback labels */
+.fb{font-size:7.5px;color:#888;font-style:italic;text-align:center;margin:1px 0}
+
+/* Arrow connector visual */
+.h-arrow{display:flex;align-items:center;justify-content:center;font-size:9px;color:#888;margin:4px 0}
+
+/* Column headers */
+.col-head{text-align:center;font-size:9px;font-weight:700;color:#444;border-bottom:1px solid #ccc;padding-bottom:3px;margin-bottom:8px}
+
+/* Divider */
+.div{height:1px;background:#ddd;margin:6px 0}
+
+/* loop note */
+.loop-note{font-size:7.5px;color:#c17a1a;font-style:italic;text-align:center;background:#fff8ec;border:1px dashed #c17a1a;border-radius:2px;padding:2px 6px;margin:3px 0}
+.loop-note2{font-size:7.5px;color:#3a7d44;font-style:italic;text-align:center;background:#f0fdf4;border:1px dashed #3a7d44;border-radius:2px;padding:2px 6px;margin:3px 0}
+
+/* merge box */
+.merge{border:1.2px solid #2563a8;border-radius:3px;background:#dbeafe;padding:4px 10px;text-align:center;font-size:8.5px;font-weight:700;color:#1e40af;margin:0 0 4px 0}
+</style>
+
+<div class="wrap">
+<div class="title">Proposed Reinforcement Learning-Adaptive Genetic Algorithm (RL-AGA) Framework for Multi-Criteria Travelling Salesman Problem</div>
+
+<!-- TOP: Input blocks (full width, center) -->
+<div style="display:flex;gap:12px;justify-content:center;margin-bottom:8px">
+  <div class="blk" style="width:220px">
+    <div class="blk-head">Block 1 — MC-TSP Dataset</div>
+    <div class="blk-body">
+      <div class="blk-item">City Coordinates</div>
+      <div class="blk-item">Distance Matrix</div>
+      <div class="blk-item">Travel Time Matrix</div>
+      <div class="blk-item">Operational Cost Matrix</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;font-size:18px;color:#555">→</div>
+  <div class="blk" style="width:220px">
+    <div class="blk-head">Block 2 — Data Preprocessing</div>
+    <div class="blk-body">
+      <div class="blk-item">Distance Computation</div>
+      <div class="blk-item">Time Estimation</div>
+      <div class="blk-item">Cost Matrix Construction</div>
+      <div class="blk-item">Min-Max Normalization</div>
+      <div class="blk-item">Objective Scaling</div>
+    </div>
+  </div>
+</div>
+<div class="arr-row">↓</div>
+
+<!-- Block 3: Hybrid Init -->
+<div style="max-width:480px;margin:0 auto 4px auto">
+  <div class="blk">
+    <div class="blk-head">Block 3 — Hybrid Population Initialization</div>
+    <div class="blk-body">
+      <div class="branches">
+        <div class="branch">10% Nearest Neighbor<br>Heuristic</div>
+        <div class="branch">90% Random Permutation<br>Initialization</div>
+      </div>
+      <div class="merge">↘ &nbsp; Initial Population P₀ &nbsp; ↙</div>
+    </div>
+  </div>
+</div>
+<div class="arr-row">↓</div>
+
+<!-- MAIN THREE-COLUMN SECTION -->
+<div class="grid" style="margin-top:4px">
+
+  <!-- LEFT: External Pareto Archive -->
+  <div>
+    <div class="col-head" style="color:#3a7d44">External Pareto Archive</div>
+    <div class="par-wrap">
+      <div class="par-label">A* — Pareto Archive</div>
+      <div class="gblk">
+        <div class="gblk-head">Non-dominated Storage</div>
+        <div class="gblk-body">
+          <div class="gblk-item">Non-dominated solution set</div>
+          <div class="gblk-item">Dominance checking</div>
+        </div>
+      </div>
+      <div class="gblk">
+        <div class="gblk-head">Archive Update</div>
+        <div class="gblk-body">
+          <div class="gblk-item">Crowding distance pruning</div>
+          <div class="gblk-item">Diversity preservation</div>
+        </div>
+      </div>
+      <div class="div"></div>
+      <div class="loop-note2">← receives solutions<br>from GA fitness eval</div>
+      <div class="loop-note2">→ sends reward signal<br>to RL reward module</div>
+      <div class="loop-note2">→ supplies final Pareto<br>front to output</div>
+    </div>
+  </div>
+
+  <!-- CENTER: GA Loop -->
+  <div>
+    <div class="col-head" style="color:#2563a8">Block 4 — Permutation-Based Genetic Algorithm</div>
+    <div class="ga-wrap">
+      <div class="ga-label">Genetic Algorithm Loop</div>
+
+      <!-- Step A -->
+      <div class="blk">
+        <div class="blk-head">Step A — Tchebycheff Fitness Evaluation</div>
+        <div class="blk-body">
+          <div class="eq">F(π|w) = max<sub>k</sub> [ w<sub>k</sub> · (f<sub>k</sub>(π) − z<sub>k</sub>*) ]</div>
+          <div class="blk-item">Dynamic ideal point update</div>
+          <div class="blk-item">Multi-objective scalarization</div>
+        </div>
+      </div>
+      <div class="arr-row">↓</div>
+
+      <!-- Step B -->
+      <div class="blk">
+        <div class="blk-head">Step B — Binary Tournament Selection</div>
+        <div class="blk-body">
+          <div class="blk-item">Fitness-proportional parent selection</div>
+        </div>
+      </div>
+      <div class="arr-row">↓</div>
+
+      <!-- Step C -->
+      <div class="blk">
+        <div class="blk-head">Step C — Order Crossover (OX)</div>
+        <div class="blk-body">
+          <div class="blk-item">Preserves relative order of cities</div>
+        </div>
+      </div>
+      <div class="arr-row">↓</div>
+
+      <!-- Step D -->
+      <div class="blk">
+        <div class="blk-head">Step D — Swap Mutation</div>
+        <div class="blk-body">
+          <div class="blk-item">Random two-city swap in permutation</div>
+        </div>
+      </div>
+      <div class="arr-row">↓</div>
+
+      <!-- Step E -->
+      <div class="blk">
+        <div class="blk-head">Step E — 2-Opt Local Search</div>
+        <div class="blk-body">
+          <div class="blk-item">Route refinement</div>
+          <div class="blk-item">Local exploitation of tour quality</div>
+        </div>
+      </div>
+      <div class="arr-row">↓</div>
+
+      <!-- Step F -->
+      <div class="blk">
+        <div class="blk-head">Step F — Generation Update P<sub>g</sub> → P<sub>g+1</sub></div>
+        <div class="blk-body">
+          <div class="blk-item">Replace current population</div>
+          <div class="blk-item">Increment generation counter</div>
+        </div>
+      </div>
+
+      <div class="loop-note" style="margin-top:6px">↻ feedback: Step F → Step A (next generation)</div>
+      <div class="loop-note">↔ population stats sent to RL state extractor</div>
+    </div>
+
+    <!-- Termination decision -->
+    <div style="margin:8px 0 4px 0">
+      <div class="arr-row">↓</div>
+      <div style="border:1.4px solid #d97706;background:#fef3c7;border-radius:3px;padding:6px 10px;max-width:300px;margin:0 auto;text-align:center">
+        <div style="font-size:9.5px;font-weight:700;color:#92400e">◇ Termination Check</div>
+        <div style="font-size:8.5px;color:#78350f;margin-top:3px">Maximum generations reached?</div>
+        <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:8px;font-weight:700">
+          <span style="color:#3a7d44">NO → ↻ back to Step A</span>
+          <span style="color:#7c3aed">YES → Final Output ↓</span>
+        </div>
+      </div>
+    </div>
+    <div class="arr-row">↓</div>
+
+    <!-- Final output -->
+    <div class="pblk">
+      <div class="pblk-head">Pareto-Optimal Route Set — Final Output</div>
+      <div class="pblk-body" style="display:flex;flex-wrap:wrap;gap:4px">
+        <div style="flex:1;min-width:100px;border:1px solid #7c3aed;border-radius:2px;background:white;padding:3px 5px">
+          <div style="font-size:8px;font-weight:700;color:#7c3aed">Best Trade-off Solutions</div>
+          <div style="font-size:7.5px;color:#3b1a7a">Pareto front route set</div>
+        </div>
+        <div style="flex:1;min-width:100px;border:1px solid #7c3aed;border-radius:2px;background:white;padding:3px 5px">
+          <div style="font-size:8px;font-weight:700;color:#7c3aed">Hypervolume (HV)</div>
+          <div style="font-size:7.5px;color:#3b1a7a">HV evaluation</div>
+        </div>
+        <div style="flex:1;min-width:100px;border:1px solid #7c3aed;border-radius:2px;background:white;padding:3px 5px">
+          <div style="font-size:8px;font-weight:700;color:#7c3aed">IGD Analysis</div>
+          <div style="font-size:7.5px;color:#3b1a7a">Convergence quality</div>
+        </div>
+        <div style="flex:1;min-width:100px;border:1px solid #7c3aed;border-radius:2px;background:white;padding:3px 5px">
+          <div style="font-size:8px;font-weight:700;color:#7c3aed">Logistics Planning</div>
+          <div style="font-size:7.5px;color:#3b1a7a">Optimized deployment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Q-Learning Controller -->
+  <div>
+    <div class="col-head" style="color:#c17a1a">Tabular Q-Learning Weight Controller</div>
+    <div class="rl-wrap">
+      <div class="rl-label">RL Adaptive Controller</div>
+
+      <div class="oblk">
+        <div class="oblk-head">State Extraction</div>
+        <div class="oblk-body">
+          <div class="oblk-item">Population diversity</div>
+          <div class="oblk-item">Fitness improvement</div>
+          <div class="oblk-item">Objective imbalance</div>
+          <div class="oblk-item">Stagnation counter</div>
+          <div class="oblk-item">Generation phase</div>
+        </div>
+      </div>
+      <div class="arr-row" style="color:#c17a1a">↓</div>
+
+      <div class="oblk">
+        <div class="oblk-head">ε-Greedy Action Selection</div>
+        <div class="oblk-body">
+          <div class="oblk-item">Increase / Decrease w₁</div>
+          <div class="oblk-item">Increase / Decrease w₂</div>
+          <div class="oblk-item">Increase / Decrease w₃</div>
+        </div>
+      </div>
+      <div class="arr-row" style="color:#c17a1a">↓</div>
+
+      <div class="oblk">
+        <div class="oblk-head">Adaptive Weight Adjustment</div>
+        <div class="oblk-body">
+          <div class="eq" style="color:#7c4700;border-color:#f0a850">w<sub>k</sub> ← (w<sub>k</sub> + Δw<sub>k</sub>) / Σw<sub>j</sub></div>
+        </div>
+      </div>
+      <div class="arr-row" style="color:#c17a1a">↓</div>
+
+      <div class="oblk">
+        <div class="oblk-head">Reward Evaluation</div>
+        <div class="oblk-body">
+          <div class="oblk-item">Fitness improvement reward</div>
+          <div class="oblk-item">Diversity reward</div>
+          <div class="oblk-item">Pareto discovery reward</div>
+          <div class="oblk-item">Stagnation penalty</div>
+        </div>
+      </div>
+      <div class="arr-row" style="color:#c17a1a">↓</div>
+
+      <div class="oblk">
+        <div class="oblk-head">Q-Table Update</div>
+        <div class="oblk-body">
+          <div class="eq" style="color:#7c4700;border-color:#f0a850;font-size:7.5px">Q(s,a) ← Q(s,a) + α[r + γ·max<sub>a'</sub>Q(s',a') − Q(s,a)]</div>
+        </div>
+      </div>
+
+      <div class="div"></div>
+      <div class="loop-note">→ updated weights sent<br>to Tchebycheff (Step A)</div>
+      <div class="loop-note">← population stats from<br>GA (Steps A–F)</div>
+      <div class="loop-note">← Pareto archive signals<br>reward computation</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Legend -->
+<div style="display:flex;gap:14px;justify-content:center;margin-top:10px;flex-wrap:wrap;border-top:1px solid #ddd;padding-top:7px">
+  <span style="display:flex;align-items:center;gap:4px;font-size:8px;color:#444"><span style="width:12px;height:10px;background:#2563a8;display:inline-block;border-radius:1px"></span>GA operations (blue)</span>
+  <span style="display:flex;align-items:center;gap:4px;font-size:8px;color:#444"><span style="width:12px;height:10px;background:#c17a1a;display:inline-block;border-radius:1px"></span>RL / adaptive control (orange)</span>
+  <span style="display:flex;align-items:center;gap:4px;font-size:8px;color:#444"><span style="width:12px;height:10px;background:#3a7d44;display:inline-block;border-radius:1px"></span>Pareto archive (green)</span>
+  <span style="display:flex;align-items:center;gap:4px;font-size:8px;color:#444"><span style="width:12px;height:10px;background:#7c3aed;display:inline-block;border-radius:1px"></span>Final output / evaluation (purple)</span>
+  <span style="display:flex;align-items:center;gap:4px;font-size:8px;color:#444"><span style="width:18px;height:0;border-top:1.5px dashed #888;display:inline-block"></span>Module boundary</span>
+</div>
+<div class="subtitle-cap">Fig. 2. Proposed RL-AGA framework for MC-TSP. The central GA loop (blue) interacts bidirectionally with the Q-learning weight controller (orange) and external Pareto archive (green), producing Pareto-optimal trade-off solutions (purple).</div>
+</div>

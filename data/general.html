@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { margin: 0; padding: 0; background: white; font-family: "Arial", "Helvetica", sans-serif; }
+.diagram-wrap { background: white; padding: 10px; overflow-x: auto; display: flex; justify-content: center; }
+svg text { font-family: Arial, Helvetica, sans-serif; }
+</style>
+</head>
+<body>
+<div class="diagram-wrap">
+<svg width="1020" height="840" viewBox="0 0 1020 840" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Optimized MC-TSP Workflow for Research Publication</title>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<text x="510" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a2e">General Workflow for Multi-Criteria Travelling Salesman Problem Optimization</text>
+<line x1="40" y1="32" x2="980" y2="32" stroke="#333" stroke-width="0.8"/>
+
+<g transform="translate(45, 45)">
+  <rect x="0" y="0" width="165" height="145" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1.1"/>
+  <rect x="0" y="0" width="165" height="22" rx="3" fill="#2563a8"/>
+  <text x="82.5" y="15" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">1. Problem Definition</text>
+  <text x="10" y="42" font-size="8.5" fill="#1e3a5f">• Distance Minimization</text>
+  <text x="10" y="56" font-size="8.5" fill="#1e3a5f">• Time Minimization</text>
+  <text x="10" y="70" font-size="8.5" fill="#1e3a5f">• Cost Minimization</text>
+  <text x="10" y="84" font-size="8.5" fill="#1e3a5f">• Multi-objective Constraints</text>
+  <text x="10" y="98" font-size="8.5" fill="#1e3a5f">• Pareto Optimization Goal</text>
+  
+  <line x1="166" y1="72" x2="184" y2="72" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="185" y="0" width="165" height="145" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1.1"/>
+  <rect x="185" y="0" width="165" height="22" rx="3" fill="#2563a8"/>
+  <text x="267.5" y="15" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">2. Dataset Collection</text>
+  <text x="195" y="42" font-size="8.5" fill="#1e3a5f">• TSPLIB Benchmarks</text>
+  <text x="195" y="56" font-size="8.5" fill="#1e3a5f">• Real Road Network Data</text>
+  <text x="195" y="70" font-size="8.5" fill="#1e3a5f">• GPS and Traffic Data</text>
+  <text x="195" y="84" font-size="8.5" fill="#1e3a5f">• Synthetic Logistics Data</text>
+  <text x="195" y="98" font-size="8.5" fill="#1e3a5f">• Fuel and Toll Cost Data</text>
+
+  <line x1="351" y1="72" x2="369" y2="72" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="370" y="0" width="165" height="145" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1.1"/>
+  <rect x="370" y="0" width="165" height="22" rx="3" fill="#2563a8"/>
+  <text x="452.5" y="15" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">3. Data Preprocessing</text>
+  <text x="380" y="42" font-size="8.5" fill="#1e3a5f">• Matrix Generation</text>
+  <text x="380" y="56" font-size="8.5" fill="#1e3a5f">• Travel Time Estimation</text>
+  <text x="380" y="70" font-size="8.5" fill="#1e3a5f">• Data Cleaning</text>
+  <text x="380" y="84" font-size="8.5" fill="#1e3a5f">• Min-Max Normalization</text>
+  <text x="380" y="98" font-size="8.5" fill="#1e3a5f">• Feature Scaling</text>
+
+  <line x1="536" y1="72" x2="554" y2="72" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="555" y="0" width="165" height="145" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1.1"/>
+  <rect x="555" y="0" width="165" height="22" rx="3" fill="#2563a8"/>
+  <text x="637.5" y="15" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">4. Objective Design</text>
+  <text x="565" y="42" font-size="8.5" fill="#1e3a5f">• Weighted Sum Method</text>
+  <text x="565" y="56" font-size="8.5" fill="#1e3a5f">• Tchebycheff Scalarization</text>
+  <text x="565" y="70" font-size="8.5" fill="#1e3a5f">• Pareto Dominance</text>
+  <text x="565" y="84" font-size="8.5" fill="#1e3a5f">• Hybrid Aggregation</text>
+
+  <line x1="721" y1="72" x2="739" y2="72" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="740" y="0" width="165" height="145" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1.1"/>
+  <rect x="740" y="0" width="165" height="22" rx="3" fill="#2563a8"/>
+  <text x="822.5" y="15" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">5. Representation</text>
+  <text x="750" y="42" font-size="8.5" fill="#1e3a5f">• Binary Encoding</text>
+  <text x="750" y="56" font-size="8.5" fill="#1e3a5f">• Permutation Encoding</text>
+  <text x="750" y="70" font-size="8.5" fill="#1e3a5f">• Adjacency Encoding</text>
+  <text x="750" y="84" font-size="8.5" fill="#1e3a5f">• Priority-Based Encoding</text>
+</g>
+
+<line x1="510" y1="192" x2="510" y2="208" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+
+<g transform="translate(80, 210)">
+  <rect x="0" y="0" width="860" height="170" rx="4" fill="#f0faf2" stroke="#2d7a3f" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="15" y="18" font-size="10.5" font-weight="700" fill="#1a4d24">6. Optimization Strategy — Algorithm Selection</text>
+  
+  <rect x="25" y="30" width="190" height="125" rx="3" fill="#d9f0de" stroke="#3a7d44" stroke-width="1"/>
+  <rect x="25" y="30" width="190" height="20" rx="3" fill="#3a7d44"/>
+  <text x="120" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="white">Evolutionary Algorithms</text>
+  <text x="35" y="65" font-size="8" fill="#1a3d22">• Genetic Algorithm (GA)</text>
+  <text x="35" y="77" font-size="8" fill="#1a3d22">• NSGA-II / MOEA/D</text>
+  <text x="35" y="89" font-size="8" fill="#1a3d22">• Differential Evolution</text>
+  
+  <rect x="230" y="30" width="190" height="125" rx="3" fill="#d9f0de" stroke="#3a7d44" stroke-width="1"/>
+  <rect x="230" y="30" width="190" height="20" rx="3" fill="#3a7d44"/>
+  <text x="325" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="white">Swarm Intelligence</text>
+  <text x="240" y="65" font-size="8" fill="#1a3d22">• Particle Swarm (PSO)</text>
+  <text x="240" y="77" font-size="8" fill="#1a3d22">• Ant Colony (ACO)</text>
+
+  <rect x="435" y="30" width="190" height="125" rx="3" fill="#fff3e2" stroke="#c17a1a" stroke-width="1"/>
+  <rect x="435" y="30" width="190" height="20" rx="3" fill="#c17a1a"/>
+  <text x="530" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="white">Reinforcement Learning</text>
+  <text x="445" y="65" font-size="8" fill="#5c3700">• Q-Learning / DQN</text>
+  <text x="445" y="77" font-size="8" fill="#5c3700">• Policy Gradient Methods</text>
+
+  <rect x="640" y="30" width="190" height="125" rx="3" fill="#fff3e2" stroke="#c17a1a" stroke-width="1"/>
+  <rect x="640" y="30" width="190" height="20" rx="3" fill="#c17a1a"/>
+  <text x="735" y="44" text-anchor="middle" font-size="9" font-weight="700" fill="white">Hybrid Approaches</text>
+  <text x="650" y="65" font-size="8" fill="#5c3700">• RL-Adaptive GA</text>
+  <text x="650" y="77" font-size="8" fill="#5c3700">• Memetic Algorithms</text>
+</g>
+
+<line x1="510" y1="382" x2="510" y2="400" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+
+<g transform="translate(145, 405)">
+  <rect x="0" y="0" width="170" height="140" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1"/>
+  <rect x="0" y="0" width="170" height="20" rx="3" fill="#2563a8"/>
+  <text x="85" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="white">7. Fitness Eval</text>
+  <text x="10" y="38" font-size="8" fill="#1e3a5f">• Tchebycheff Fitness</text>
+  <text x="10" y="50" font-size="8" fill="#1e3a5f">• Pareto Ranking</text>
+  <text x="10" y="62" font-size="8" fill="#1e3a5f">• Crowding Distance</text>
+
+  <line x1="171" y1="70" x2="184" y2="70" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="185" y="0" width="170" height="140" rx="3" fill="#e8f0fb" stroke="#2563a8" stroke-width="1"/>
+  <rect x="185" y="0" width="170" height="20" rx="3" fill="#2563a8"/>
+  <text x="270" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="white">8. Local Search</text>
+  <text x="195" y="38" font-size="8" fill="#1e3a5f">• 2-Opt / 3-Opt</text>
+  <text x="195" y="50" font-size="8" fill="#1e3a5f">• Tabu Search</text>
+  <text x="195" y="62" font-size="8" fill="#1e3a5f">• Hill Climbing</text>
+
+  <line x1="356" y1="70" x2="369" y2="70" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="370" y="0" width="170" height="140" rx="3" fill="#fff3e2" stroke="#c17a1a" stroke-width="1"/>
+  <rect x="370" y="0" width="170" height="20" rx="3" fill="#c17a1a"/>
+  <text x="455" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="white">9. Adaptive Control</text>
+  <text x="380" y="38" font-size="8" fill="#5c3700">• RL Weight Adaptation</text>
+  <text x="380" y="50" font-size="8" fill="#5c3700">• Dynamic Param. Tuning</text>
+
+  <line x1="541" y1="70" x2="554" y2="70" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+
+  <rect x="555" y="0" width="170" height="140" rx="3" fill="#f0eafb" stroke="#7c3aed" stroke-width="1"/>
+  <rect x="555" y="0" width="170" height="20" rx="3" fill="#7c3aed"/>
+  <text x="640" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="white">10. Pareto Archive</text>
+  <text x="565" y="38" font-size="8" fill="#3b1a7a">• Non-dominated Sorting</text>
+  <text x="565" y="50" font-size="8" fill="#3b1a7a">• Diversity Preservation</text>
+</g>
+
+<line x1="510" y1="547" x2="510" y2="565" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+
+<g transform="translate(310, 570)">
+  <rect x="0" y="0" width="400" height="100" rx="3" fill="#f0eafb" stroke="#7c3aed" stroke-width="1.1"/>
+  <rect x="0" y="0" width="400" height="20" rx="3" fill="#7c3aed"/>
+  <text x="200" y="14" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">11. Performance Evaluation</text>
+  <text x="15" y="45" font-size="8.5" fill="#3b1a7a">• Hypervolume (HV)</text>
+  <text x="15" y="65" font-size="8.5" fill="#3b1a7a">• Inverted Generational Distance (IGD)</text>
+  <text x="220" y="45" font-size="8.5" fill="#3b1a7a">• Convergence Speed</text>
+  <text x="220" y="65" font-size="8.5" fill="#3b1a7a">• Solution Diversity Metric</text>
+</g>
+
+<line x1="510" y1="672" x2="510" y2="690" stroke="#555" stroke-width="1.2" marker-end="url(#arr)"/>
+
+<g transform="translate(200, 695)">
+  <rect x="0" y="0" width="620" height="100" rx="4" fill="#d1fae5" stroke="#065f46" stroke-width="1.5"/>
+  <rect x="0" y="0" width="620" height="24" rx="4" fill="#065f46"/>
+  <text x="310" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="white">12. Final Optimized Routes / Pareto Front</text>
+  
+  <rect x="15" y="35" width="140" height="50" rx="2" fill="white" stroke="#065f46" stroke-width="0.8"/>
+  <text x="85" y="55" text-anchor="middle" font-size="8.5" font-weight="700" fill="#065f46">Best Route Set</text>
+  <text x="85" y="70" text-anchor="middle" font-size="7.5" fill="#166534">Multi-criteria optimal</text>
+
+  <rect x="165" y="35" width="140" height="50" rx="2" fill="white" stroke="#065f46" stroke-width="0.8"/>
+  <text x="235" y="55" text-anchor="middle" font-size="8.5" font-weight="700" fill="#065f46">Trade-off Front</text>
+  <text x="235" y="70" text-anchor="middle" font-size="7.5" fill="#166534">Pareto-optimal set</text>
+
+  <rect x="315" y="35" width="140" height="50" rx="2" fill="white" stroke="#065f46" stroke-width="0.8"/>
+  <text x="385" y="55" text-anchor="middle" font-size="8.5" font-weight="700" fill="#065f46">Decision Support</text>
+  <text x="385" y="70" text-anchor="middle" font-size="7.5" fill="#166534">Stakeholder analysis</text>
+
+  <rect x="465" y="35" width="140" height="50" rx="2" fill="white" stroke="#065f46" stroke-width="0.8"/>
+  <text x="535" y="55" text-anchor="middle" font-size="8.5" font-weight="700" fill="#065f46">Logistics Plan</text>
+  <text x="535" y="70" text-anchor="middle" font-size="7.5" fill="#166534">Real-world deployment</text>
+</g>
+
+
+<text x="510" y="830" text-anchor="middle" font-size="8.5" fill="#666" font-style="italic">Fig. 1. Unified optimization pipeline for MC-TSP. The workflow integrates data acquisition (blue), algorithm selection (green), adaptive search control (orange), and multi-objective performance assessment (purple) to produce deployable logistics solutions.</text>
+
+</svg>
+</div>
+</body>
+</html>
