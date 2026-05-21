@@ -1,16 +1,16 @@
 # RL-AGA: Reinforcement Learning Adaptive Genetic Algorithm for Multi-Criteria TSP
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9%2B-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Python-3.11%2B-blue?logo=python" />
   <img src="https://img.shields.io/badge/Status-Under%20Review-orange" />
   <img src="https://img.shields.io/badge/License-MIT-green" />
   <img src="https://img.shields.io/badge/Target%20Venue-Applied%20Soft%20Computing-purple" />
 </p>
 
-> **Research Paper:** *RL-AGA: A Reinforcement Learning-Adaptive Genetic Algorithm for the Multi-Criteria Travelling Salesman Problem*  
-> **Authors:** Preetam, Sarika Yadav  
+> **Research Paper:** *Adaptive Weight Scalarization for Multi-Criteria Traveling Salesman Problem Using Q-Learning*  
+> **Authors:** Preetam Manna, Sarika Yadav  
 > **Department of Computer Science and Engineering, MNNIT Allahabad (Prayagraj)**  
-> **Status:** Submitted for review — June 2026
+> **Status:** Submitted for review — May 2026
 
 ---
 
